@@ -1,6 +1,4 @@
-const plugin = require('tailwindcss/plugin');
-
-module.exports = () =>
+module.exports = (plugin) =>
   plugin(({ addUtilities }) => {
     const noScrollbar = {
       '.no-scrollbar': {

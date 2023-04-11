@@ -1,9 +1,8 @@
-const plugin = require('tailwindcss/plugin');
 const hexToRgb = require('./hex-to-rgb.js');
 const iosColors = require('./ios-colors.js');
 const mdColors = require('./md-colors.js');
 
-module.exports = (userConfig = {}, konstConfig = {}) => {
+module.exports = (userConfig = {}, konstConfig = {}, plugin) => {
   let iosFont =
     '-apple-system, SF Pro Text, SF UI Text, system-ui, Helvetica Neue, Helvetica, Arial, sans-serif';
   let materialFont = 'Roboto, system-ui, Noto, Helvetica, Arial, sans-serif';

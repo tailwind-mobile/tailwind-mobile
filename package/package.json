@@ -32,6 +32,8 @@
       "import": "./svelte/konsta-svelte.js"
     },
     "./config": "./config.js",
-    "./config.js": "./config.js"
+    "./config.js": "./config.js",
+    "./configUnocss": "./configUnocss.js",
+    "./configUnocss.js": "./configUnocss.js"
   }
 }

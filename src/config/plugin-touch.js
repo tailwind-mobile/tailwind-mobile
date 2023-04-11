@@ -1,6 +1,4 @@
-const plugin = require('tailwindcss/plugin');
-
-module.exports = () =>
+module.exports = (plugin) =>
   plugin(({ addUtilities }) => {
     const touch = {};
     const values = ['pan-x', 'pan-y', 'none', 'manipulation'];
