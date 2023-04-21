@@ -32,6 +32,7 @@ declare class KonstaProvider extends SvelteComponentTyped<
 declare const useTheme: (
   cb?: (newValue: 'material' | 'ios') => void
 ) => 'material' | 'ios';
+declare const touchRipple: (node: HTMLElement, styles: boolean) => void;
 
 // EXPORT_COMPONENTS
-export { useTheme, KonstaProvider };
+export { useTheme, touchRipple, KonstaProvider };

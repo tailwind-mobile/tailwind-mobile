@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import ActionSheet from './pages/ActionSheet.svelte';
 import Badge from './pages/Badge.svelte';
 import Breadcrumbs from './pages/Breadcrumbs.svelte';
@@ -20,6 +21,7 @@ import Preloader from './pages/Preloader.svelte';
 import Progressbar from './pages/Progressbar.svelte';
 import Radio from './pages/Radio.svelte';
 import RangeSlider from './pages/RangeSlider.svelte';
+import Ripple from './pages/Ripple.svelte';
 import SegmentedControl from './pages/SegmentedControl.svelte';
 import SheetModal from './pages/SheetModal.svelte';
 import Stepper from './pages/Stepper.svelte';
@@ -52,6 +54,7 @@ const pages = {
   Progressbar,
   Radio,
   RangeSlider,
+  Ripple,
   SegmentedControl,
   SheetModal,
   Stepper,
