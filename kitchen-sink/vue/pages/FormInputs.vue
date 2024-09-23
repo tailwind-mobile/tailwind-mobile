@@ -13,7 +13,6 @@
           <demo-icon />
         </template>
       </k-list-input>
-
       <k-list-input
         label="Password"
         type="password"
@@ -325,13 +324,12 @@
     <k-block-title>Clear Button</k-block-title>
     <k-list inset-ios strong-ios>
       <k-list-input
+        v-model="demoValue"
         label="TV Show"
         type="text"
         placeholder="Your favorite TV show"
         info="Type something to see clear button"
-        :value="demoValue"
         :clear-button="demoValue.length > 0"
-        @input="onDemoValueChange"
         @clear="onDemoValueClear"
       >
         <template #media>
@@ -339,6 +337,7 @@
         </template>
       </k-list-input>
     </k-list>
+    <p>Favorite TV Show: {{demoValue}}</p>
 
     <k-block-title>Icon + Input</k-block-title>
     <k-list inset-ios strong-ios>
@@ -442,7 +441,7 @@
     },
     setup() {
       const name = ref({ value: '', changed: false });
-      const demoValue = ref('');
+      const demoValue = ref('test');
 
       const onNameChange = (e) => {
         name.value = { value: e.target.value, changed: true };

@@ -49,6 +49,7 @@
           :pattern="pattern"
           :tabindex="tabindex"
           v-bind="inputProps"
+          :value="modelValue"
           @input="onInput"
           @change="onChange"
           @focus="onFocusInternal"
@@ -150,7 +151,7 @@
       inputClass: { type: String, default: '' },
 
       name: String,
-      value: [String, Number],
+      modelValue: [String, Number],
       type: { type: String, default: 'text' },
       inputmode: String,
       readonly: Boolean,
@@ -174,7 +175,7 @@
       pattern: String,
       tabindex: [String, Number],
     },
-    emits: ['change', 'input', 'focus', 'blur', 'clear'],
+    emits: ['update:modelValue', 'change', 'input', 'focus', 'blur', 'clear'],
     setup(props, ctx) {
       const context = useContext();
       const useDarkClasses = darkClasses(context);
@@ -209,9 +210,9 @@
 
       const isInputHasValue = () => {
         const domValue = getDomValue();
-        return typeof props.value === 'undefined'
+        return typeof props.modelValue === 'undefined'
           ? domValue || domValue === 0
-          : props.value || props.value === 0;
+          : props.modelValue || props.modelValue === 0;
       };
       const isFloatingTransformed = computed(() => {
         return (
@@ -244,6 +245,7 @@
 
       const onInput = (e) => {
         ctx.emit('input', e);
+        ctx.emit('update:modelValue', e.target.value);
       };
 
       const onClear = (e) => {
@@ -281,7 +283,6 @@
         return {
           ...(typeof props.size === 'undefined' ? {} : { size: props.size }),
           ...(needsType.value ? { type: props.type } : {}),
-          ...(typeof props.value === 'undefined' ? {} : { value: props.value }),
         };
       });
 
