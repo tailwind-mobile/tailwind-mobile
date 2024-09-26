@@ -1,4 +1,3 @@
-const plugin = require('tailwindcss/plugin');
 const hexToRgb = require('./hex-to-rgb.js');
 const iosColors = require('./ios-colors.js');
 const mdColors = require('./md-colors.js');
@@ -20,7 +19,7 @@ const rulesForColor = (name, hex) => {
   };
 };
 
-module.exports = (konstaConfig) =>
+module.exports = (plugin, konstaConfig) =>
   plugin(({ addUtilities }) => {
     const themeColors = konstaConfig.colors;
 

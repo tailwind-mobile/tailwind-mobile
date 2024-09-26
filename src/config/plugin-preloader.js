@@ -1,6 +1,4 @@
-const plugin = require('tailwindcss/plugin');
-
-module.exports = () =>
+module.exports = (plugin) =>
   plugin(({ addComponents }) => {
     addComponents({
       '.k-ios-preloader > span': {

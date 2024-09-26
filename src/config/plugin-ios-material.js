@@ -1,6 +1,4 @@
-const plugin = require('tailwindcss/plugin');
-
-module.exports = () =>
+module.exports = (plugin) =>
   plugin(({ addVariant, e }) => {
     addVariant('material', ({ modifySelectors, separator }) => {
       modifySelectors(({ className, selector }) => {

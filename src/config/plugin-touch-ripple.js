@@ -1,7 +1,6 @@
-const plugin = require('tailwindcss/plugin');
 const hexToRgb = require('./hex-to-rgb.js');
 
-module.exports = () =>
+module.exports = (plugin) =>
   plugin(({ addUtilities, addBase, theme }) => {
     addBase({
       // prettier-ignore
