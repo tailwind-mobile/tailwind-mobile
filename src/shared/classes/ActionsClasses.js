@@ -5,7 +5,7 @@ export const ActionsClasses = (props, classes) => {
   return {
     base: {
       common: cls(
-        'transition-transform z-40 left-1/2 bottom-0 transform -translate-x-1/2 max-w-md w-full overflow-hidden',
+        'transition-transform z-40 left-1/2 bottom-0 transform -translate-x-1/2 max-w-md w-full max-h-screen overflow-y-auto',
         positionClass('fixed', classes)
       ),
       ios: 'pt-2 px-2 pb-2-safe duration-300',
