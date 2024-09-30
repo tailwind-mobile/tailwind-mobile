@@ -165,7 +165,7 @@ const Navbar = forwardRef((props, ref) => {
   useEffect(() => {
     initScroll();
     return destroyScroll;
-  });
+  }, []);
 
   const isOutline = typeof outline === 'undefined' ? theme === 'ios' : outline;
 
