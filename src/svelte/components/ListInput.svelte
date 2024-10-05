@@ -149,9 +149,6 @@
     className,
     (v) => (c = v)
   );
-
-  $: InputComponent = type === 'select' || type === 'textarea' ? type : 'input';
-  $: needsType = InputComponent === 'input';
 </script>
 
 <ListItem
@@ -193,14 +190,12 @@
       {:else}
         <!-- svelte-ignore a11y-autofocus -->
         {#if type === 'select'}
-          <svelte:element
-            this={InputComponent}
+          <select
             id={inputId}
             bind:this={inputEl}
             class={c.input[labelStyleIsFloating]}
             style={inputStyle}
             {name}
-            type={needsType ? type : undefined}
             {placeholder}
             {inputmode}
             {size}
@@ -217,28 +212,26 @@
             {min}
             {minlength}
             {step}
-            {multiple}
+            {...{ multiple }}
             {readonly}
             {required}
             {pattern}
             {tabindex}
-            {value}
+            bind:value
             on:input={onInput}
             on:change={onChange}
             on:focus={onFocusInternal}
             on:blur={onBlurInternal}
           >
             <slot />
-          </svelte:element>
-        {:else}
-          <svelte:element
-            this={InputComponent}
+          </select>
+        {:else if type === 'textarea'}
+          <textarea
             id={inputId}
             bind:this={inputEl}
             class={c.input[labelStyleIsFloating]}
             style={inputStyle}
             {name}
-            type={needsType ? type : undefined}
             {placeholder}
             {inputmode}
             {size}
@@ -260,7 +253,42 @@
             {required}
             {pattern}
             {tabindex}
-            {value}
+            bind:value
+            on:input={onInput}
+            on:change={onChange}
+            on:focus={onFocusInternal}
+            on:blur={onBlurInternal}
+          ></textarea>
+        {:else}
+          <input
+            id={inputId}
+            bind:this={inputEl}
+            class={c.input[labelStyleIsFloating]}
+            style={inputStyle}
+            {name}
+            {...{ type }}
+            {placeholder}
+            {inputmode}
+            {size}
+            {accept}
+            {autocomplete}
+            {autocorrect}
+            {autocapitalize}
+            {spellcheck}
+            {autofocus}
+            {autosave}
+            {disabled}
+            {max}
+            {maxlength}
+            {min}
+            {minlength}
+            {step}
+            {multiple}
+            {readonly}
+            {required}
+            {pattern}
+            {tabindex}
+            bind:value
             on:input={onInput}
             on:change={onChange}
             on:focus={onFocusInternal}
